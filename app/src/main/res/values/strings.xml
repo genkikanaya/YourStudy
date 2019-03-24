@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Your Study</string>
+    <string name="answer_text">こたえる</string>
+    <string name="retry_text">もういっかい</string>
 </resources>
