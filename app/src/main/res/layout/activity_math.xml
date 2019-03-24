@@ -37,21 +37,25 @@
     <TextView
             android:text="TextView"
             android:layout_width="100dp"
-            android:layout_height="100dp" tools:layout_editor_absoluteY="203dp"
+            android:layout_height="100dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/answer"
-            android:background="@drawable/frame_style"/>
+            android:background="@drawable/frame_style" android:layout_marginTop="72dp"
+            app:layout_constraintTop_toBottomOf="@+id/sign"/>
     <Button
             android:text="@string/answer_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="346dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/button"/>
+            android:id="@+id/button" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/answer"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/button2"/>
     <Button
             android:text="@string/retry_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="423dp"
+            android:layout_height="wrap_content"
             android:id="@+id/button2" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 </android.support.constraint.ConstraintLayout>
