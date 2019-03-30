@@ -34,11 +34,9 @@ class MathActivity : AppCompatActivity() {
         signText.text = sign
 
 //        arrayadapter
-//        val adapter = ArrayAdapter(applicationContext,android.R.layout.simple_spinner_item,answerSpinnerItems)
-        val adapter = ArrayAdapter(applicationContext,R.layout.spinner,answerSpinnerItems)
+        val adapter = ArrayAdapter(applicationContext,R.layout.spinner_item,answerSpinnerItems)
 
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
         spinner.adapter = adapter
 
