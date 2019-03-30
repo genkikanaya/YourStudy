@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Your Study</string>
-    <string name="answer_text">こたえる</string>
-    <string name="retry_text">もういっかい</string>
+    <string name="answer_text">こたえあわせ</string>
+    <string name="retry_text">つぎのもんだい</string>
+    <string name="answer">こたえ</string>
 </resources>
