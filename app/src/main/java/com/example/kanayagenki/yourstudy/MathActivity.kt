@@ -3,10 +3,7 @@ package com.example.kanayagenki.yourstudy
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_math.*
 import kotlin.random.Random
 
@@ -47,6 +44,8 @@ class MathActivity : AppCompatActivity() {
 //                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
+
+//        次の問題
         val nextButton = findViewById(R.id.nextButton) as Button
         nextButton.setOnClickListener {
 
@@ -57,6 +56,18 @@ class MathActivity : AppCompatActivity() {
 
             settingsText(num1, num2, sign)
 
+        }
+        //        答え合わせ
+//        TODO 次の問題にいったときスピナーの値が更新されない
+        val checkButton = findViewById(R.id.checkButton) as Button
+        checkButton.setOnClickListener {
+            if (spinner.selectedItem == num1 + num2) {
+                Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
+            }
+            else {
+                Toast.makeText(this@MathActivity, "ざんねん！！！", Toast.LENGTH_LONG ).show()
+
+            }
         }
     }
 
