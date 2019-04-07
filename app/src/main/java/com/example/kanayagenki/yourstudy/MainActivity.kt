@@ -1,8 +1,8 @@
 package com.example.kanayagenki.yourstudy
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         subjectView.adapter = adapter
 
         subjectView.setOnItemClickListener { parent, view, position, id ->
+//            算数問題
             if (position == 0) {
                 val intent = Intent(this, MathActivity::class.java)
                 startActivity(intent)
