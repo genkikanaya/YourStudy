@@ -20,19 +20,12 @@ class MathActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_math)
 
-//        ランダム値ロジック
-//        number1に０〜１０の数をランダムで求める
-//        number2は、number1に対して数を足した時に１０以下になる値をランダムで求める。
-//            muber2 <= 10 - number1　を満たす乱数
-        var num1 = Random.nextInt(0, 10)
-        var num2 = Random.nextInt(10 - num1)
+        var(num1, num2) = randomItem()
 
 //        当面四則演算は足し算のみとする
         var sign = "+"
 
-        number1.text = num1.toString()
-        number2.text = num2.toString()
-        signText.text = sign
+        settingsText(num1, num2, sign)
 
 //        arrayadapter
         val adapter = ArrayAdapter(applicationContext,R.layout.spinner_item,answerSpinnerItems)
@@ -56,16 +49,35 @@ class MathActivity : AppCompatActivity() {
         }
         val nextButton = findViewById(R.id.nextButton) as Button
         nextButton.setOnClickListener {
-            var num1 = Random.nextInt(0, 10)
-            var num2 = Random.nextInt(10 - num1)
+
+            var(num1, num2) = randomItem()
 
 //        当面四則演算は足し算のみとする
             var sign = "+"
 
-            number1.text = num1.toString()
-            number2.text = num2.toString()
-            signText.text = sign
+            settingsText(num1, num2, sign)
+
         }
+    }
+
+    private fun randomItem() : Pair<Int, Int> {
+//        ランダム値ロジック
+//        number1に０〜１０の数をランダムで求める
+//        number2は、number1に対して数を足した時に１０以下になる値をランダムで求める。
+//        number2 <= 10 - number1　を満たす乱数
+
+        var num1 = Random.nextInt(0, 10)
+        var num2 = Random.nextInt(10 - num1)
+        return Pair(num1, num2)
+    }
+
+    private fun settingsText(num1: Int, num2: Int, sign: String) {
+//        問題欄にアイテムをセットするs
+        number1.text = num1.toString()
+        number2.text = num2.toString()
+        signText.text = sign
 
     }
+
+
 }
