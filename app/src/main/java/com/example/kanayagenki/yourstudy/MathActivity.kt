@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_math.*
 import kotlin.random.Random
@@ -53,10 +54,18 @@ class MathActivity : AppCompatActivity() {
 //                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
+        val nextButton = findViewById(R.id.nextButton) as Button
+        nextButton.setOnClickListener {
+            var num1 = Random.nextInt(0, 10)
+            var num2 = Random.nextInt(10 - num1)
 
+//        当面四則演算は足し算のみとする
+            var sign = "+"
 
-
-
+            number1.text = num1.toString()
+            number2.text = num2.toString()
+            signText.text = sign
+        }
 
     }
 }
