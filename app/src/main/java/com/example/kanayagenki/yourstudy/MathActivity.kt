@@ -3,7 +3,10 @@ package com.example.kanayagenki.yourstudy
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_math.*
 import kotlin.random.Random
 
@@ -13,11 +16,18 @@ class MathActivity : AppCompatActivity() {
 //    回答の選択肢
     private val answerSpinnerItems = (0..10).toList()
 
+    var num1: Int = 0
+    var num2: Int = 0
+    var questionPair: Pair<Int, Int> = Pair(num1, num2)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_math)
 
-        var(num1, num2) = randomItem()
+//        var(num1, num2) = randomItem()
+        this.questionPair = randomItem()
+        this.num1 = this.questionPair.first
+        this.num2 = this.questionPair.second
 
 //        当面四則演算は足し算のみとする
         var sign = "+"
@@ -34,14 +44,11 @@ class MathActivity : AppCompatActivity() {
 //        リスナー登録
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val spinnerParent = parent as Spinner
-                val item = spinnerParent.selectedItem as String
-//                textView.text = item
-//                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//                val spinnerParent = parent as Spinner
+//                val item = spinnerParent.selectedItem as String
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-//                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
 
@@ -49,7 +56,10 @@ class MathActivity : AppCompatActivity() {
         val nextButton = findViewById(R.id.nextButton) as Button
         nextButton.setOnClickListener {
 
-            var(num1, num2) = randomItem()
+//            var(num1, num2) = randomItem()
+            this.questionPair = randomItem()
+            this.num1 = this.questionPair.first
+            this.num2 = this.questionPair.second
 
 //        当面四則演算は足し算のみとする
             var sign = "+"
@@ -58,10 +68,10 @@ class MathActivity : AppCompatActivity() {
 
         }
         //        答え合わせ
-//        TODO 次の問題にいったときスピナーの値が更新されない
+//        TODO 次の問題にいったときnum1とnum2の値が更新されない
         val checkButton = findViewById(R.id.checkButton) as Button
         checkButton.setOnClickListener {
-            if (spinner.selectedItem == num1 + num2) {
+            if (spinner.getSelectedItem() == num1 + num2) {
                 Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
             }
             else {
@@ -77,9 +87,9 @@ class MathActivity : AppCompatActivity() {
 //        number2は、number1に対して数を足した時に１０以下になる値をランダムで求める。
 //        number2 <= 10 - number1　を満たす乱数
 
-        var num1 = Random.nextInt(0, 10)
-        var num2 = Random.nextInt(10 - num1)
-        return Pair(num1, num2)
+        val item1 = Random.nextInt(0, 10)
+        val item2 = Random.nextInt(10 - item1)
+        return Pair(item1, item2)
     }
 
     private fun settingsText(num1: Int, num2: Int, sign: String) {
