@@ -18,19 +18,20 @@ class MathActivity : AppCompatActivity() {
 
     var num1: Int = 0
     var num2: Int = 0
-    var questionPair: Pair<Int, Int> = Pair(num1, num2)
+    var sign: String = ""
+    var answer: Int = 0
+    var questionTriple: Triple<Int, Int, String> = Triple(num1, num2, sign)
+
+    val signs = listOf("+", "-")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_math)
 
-//        var(num1, num2) = randomItem()
-        this.questionPair = randomItem()
-        this.num1 = this.questionPair.first
-        this.num2 = this.questionPair.second
-
-//        当面四則演算は足し算のみとする
-        var sign = "+"
+        this.questionTriple = randomItem()
+        this.num1 = this.questionTriple.first
+        this.num2 = this.questionTriple.second
+        this.sign = this.questionTriple.third
 
         settingsText(num1, num2, sign)
 
@@ -44,8 +45,6 @@ class MathActivity : AppCompatActivity() {
 //        リスナー登録
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//                val spinnerParent = parent as Spinner
-//                val item = spinnerParent.selectedItem as String
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -56,22 +55,26 @@ class MathActivity : AppCompatActivity() {
         val nextButton = findViewById(R.id.nextButton) as Button
         nextButton.setOnClickListener {
 
-//            var(num1, num2) = randomItem()
-            this.questionPair = randomItem()
-            this.num1 = this.questionPair.first
-            this.num2 = this.questionPair.second
-
-//        当面四則演算は足し算のみとする
-            var sign = "+"
+            this.questionTriple = randomItem()
+            this.num1 = this.questionTriple.first
+            this.num2 = this.questionTriple.second
+            this.sign = this.questionTriple.third
 
             settingsText(num1, num2, sign)
 
         }
         //        答え合わせ
-//        TODO 次の問題にいったときnum1とnum2の値が更新されない
         val checkButton = findViewById(R.id.checkButton) as Button
         checkButton.setOnClickListener {
-            if (spinner.getSelectedItem() == num1 + num2) {
+            when(sign){
+                "+" -> {
+                    answer = num1 + num2
+                }
+                "-" -> {
+                    answer = num1 - num2
+                }
+            }
+            if (spinner.getSelectedItem() == answer) {
                 Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
             }
             else {
@@ -81,15 +84,27 @@ class MathActivity : AppCompatActivity() {
         }
     }
 
-    private fun randomItem() : Pair<Int, Int> {
+    private fun randomItem() : Triple<Int, Int, String> {
 //        ランダム値ロジック
 //        number1に０〜１０の数をランダムで求める
 //        number2は、number1に対して数を足した時に１０以下になる値をランダムで求める。
 //        number2 <= 10 - number1　を満たす乱数
+        var item1 :Int = 0
+        var item2 :Int = 0
+        var item3 :String = signs.random()
 
-        val item1 = Random.nextInt(0, 10)
-        val item2 = Random.nextInt(10 - item1)
-        return Pair(item1, item2)
+        when(item3) {
+            "+" -> {
+                item1 = Random.nextInt(0, 10)
+                item2 = Random.nextInt(10 - item1)
+            }
+            "-" -> {
+                item1 = Random.nextInt(0, 10)
+                item2 = Random.nextInt(0, item1)
+            }
+        }
+
+        return Triple(item1, item2, item3)
     }
 
     private fun settingsText(num1: Int, num2: Int, sign: String) {
