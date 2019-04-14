@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="#ffffff" />
-    <corners android:radius="6dp" />
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#ffffff"/>
+            //四隅の角を丸くする
+            <corners
+                    android:topRightRadius="6dp"
+                    android:bottomRightRadius="6dp"
+                    android:bottomLeftRadius="6dp"
+                    android:topLeftRadius="6dp"/>
+            　　　　　//1dpの枠線をつける
+            <stroke android:width="1dp"
+                    android:color="#ccc"/>
+        </shape>
+    </item>
+    //次に余白をつけたのを重ねる
+    <item android:right="40dp"
+          android:top="1dp"
+          android:left="1dp"
+          android:bottom="1dp" tools:ignore="StateListReachable">
+        <shape>
+            <solid android:color="#fff"/>
+            　　　　//こっちは左にだけ角丸をつけておく
+            <corners
+                    android:bottomLeftRadius="4dp"
+                    android:topLeftRadius="4dp"/>
+        </shape>
+    </item>
 
-</shape>
+</selector>
