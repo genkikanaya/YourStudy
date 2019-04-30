@@ -18,9 +18,19 @@ class MainActivity : AppCompatActivity() {
 
         subjectView.setOnItemClickListener { parent, view, position, id ->
 //            算数問題
-            if (position == 0) {
-                val intent = Intent(this, MathActivity::class.java)
-                startActivity(intent)
+//            if (position == 0) {
+//                val intent = Intent(this, MathActivity::class.java)
+//                startActivity(intent)
+//            }
+            when(position) {
+                0 -> {
+                    val intent = Intent(this, MathActivity::class.java)
+                    startActivity(intent)
+                }
+                1 -> {
+                    val intent = Intent(this, EnglishActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }
