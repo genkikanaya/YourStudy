@@ -1,7 +1,10 @@
 package com.example.kanayagenki.yourstudy
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -75,10 +78,12 @@ class MathActivity : AppCompatActivity() {
                 }
             }
             if (spinner.getSelectedItem() == answer) {
-                Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
+//                Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
+                showToast(this@MathActivity, "ok")
             }
             else {
-                Toast.makeText(this@MathActivity, "ざんねん！！！", Toast.LENGTH_LONG ).show()
+//                Toast.makeText(this@MathActivity, "ざんねん！！！", Toast.LENGTH_LONG ).show()
+                showToast(this@MathActivity, "ng")
 
             }
         }
@@ -113,6 +118,24 @@ class MathActivity : AppCompatActivity() {
         number2.text = num2.toString()
         signText.text = sign
 
+    }
+
+    private fun showToast(context: Context, answerCollectIncollect: String){
+//        Toastを表示する
+        val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view :View
+        if (answerCollectIncollect == "ok") {
+            view = inflate.inflate(R.layout.ok_toast, null)
+        }
+        else {
+            view = inflate.inflate(R.layout.ng_toast, null)
+        }
+        Toast(context).run {
+            this.view = view
+            duration = Toast.LENGTH_SHORT
+            setGravity(Gravity.BOTTOM,0,250)
+            show()
+        }
     }
 
 
