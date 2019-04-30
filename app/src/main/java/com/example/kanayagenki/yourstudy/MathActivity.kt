@@ -78,11 +78,9 @@ class MathActivity : AppCompatActivity() {
                 }
             }
             if (spinner.getSelectedItem() == answer) {
-//                Toast.makeText(this@MathActivity, "せいかい！！！", Toast.LENGTH_LONG ).show()
                 showToast(this@MathActivity, "ok")
             }
             else {
-//                Toast.makeText(this@MathActivity, "ざんねん！！！", Toast.LENGTH_LONG ).show()
                 showToast(this@MathActivity, "ng")
 
             }
