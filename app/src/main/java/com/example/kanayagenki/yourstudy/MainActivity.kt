@@ -17,18 +17,20 @@ class MainActivity : AppCompatActivity() {
         subjectView.adapter = adapter
 
         subjectView.setOnItemClickListener { parent, view, position, id ->
-//            算数問題
-//            if (position == 0) {
-//                val intent = Intent(this, MathActivity::class.java)
-//                startActivity(intent)
-//            }
             when(position) {
                 0 -> {
+//                    算数問題
                     val intent = Intent(this, MathActivity::class.java)
                     startActivity(intent)
                 }
                 1 -> {
+//                    英語問題
                     val intent = Intent(this, EnglishActivity::class.java)
+                    startActivity(intent)
+                }
+                2 -> {
+//                    ギリシア文字問題
+                    val intent = Intent( this, GreekCharacterActivity::class.java)
                     startActivity(intent)
                 }
             }
