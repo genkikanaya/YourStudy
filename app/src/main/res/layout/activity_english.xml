@@ -5,7 +5,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFCC"
         tools:context=".EnglishActivity">
     <TextView
             android:text="TextView"
@@ -26,12 +25,16 @@
             android:id="@+id/engsishAnswer"
             android:layout_marginTop="36dp"
             android:gravity="center_vertical"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="25sp"
+            android:autoSizeMaxTextSize="50sp"
             app:layout_constraintTop_toBottomOf="@+id/alphabet" android:textAlignment="center"
-            android:textStyle="bold" android:textSize="50sp"/>
+            android:textStyle="bold"/>
     <Button
             android:text="@string/answer_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/checkButton" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/alphabet"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/nextButton"
@@ -41,6 +44,7 @@
             android:text="@string/retry_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
             android:id="@+id/nextButton" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"

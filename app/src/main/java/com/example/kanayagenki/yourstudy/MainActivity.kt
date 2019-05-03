@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val subjects = arrayOf("さんすう", "えいご", "ぎりしあもじ")
+    val subjects = arrayOf("さんすう", "えいご", "ギリシアもじ")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
