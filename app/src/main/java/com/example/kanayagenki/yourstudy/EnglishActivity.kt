@@ -51,13 +51,13 @@ class EnglishActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             questionAlphabet = randomAlphabet()
             settingQuestion(questionAlphabet)
-            answer.text = ""
+            engsishAnswer.text = ""
         }
 
 //        こたえ
         val checkButton = findViewById(R.id.checkButton) as Button
         checkButton.setOnClickListener {
-            answer.text = alphabets[questionAlphabet]
+            engsishAnswer.text = alphabets[questionAlphabet]
         }
     }
 
