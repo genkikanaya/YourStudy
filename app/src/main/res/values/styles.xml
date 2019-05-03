@@ -11,7 +11,7 @@
         <item name="actionBarStyle">@style/CustomActionBar</item>
     </style>
 
-    <!--背景色の設定とタイトルカラーのスタイル設定-->
+    <!--タイトルカラーのスタイル設定-->
     <style name="CustomActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/actionbar_background</item>
         <item name="background">@drawable/actionbar_background</item>
