@@ -9,9 +9,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".GreekCharacterActivity">
+        <activity
+                android:name=".GreekCharacterActivity"
+                android:label="ギリシアもじ">
         </activity>
-        <activity android:name=".EnglishActivity">
+        <activity
+                android:name=".EnglishActivity"
+                android:label="えいご">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MathActivity">
+        <activity
+                android:name=".MathActivity"
+                android:label="さんすう">
         </activity>
     </application>
 
