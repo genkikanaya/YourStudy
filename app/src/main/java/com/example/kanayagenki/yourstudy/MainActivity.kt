@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, subjects)
         subjectView.adapter = adapter
 
-        subjectView.setOnItemClickListener { parent, view, position, id ->
+        subjectView.setOnItemClickListener { _, _, position, _ ->
             when(position) {
                 0 -> {
 //                    算数問題

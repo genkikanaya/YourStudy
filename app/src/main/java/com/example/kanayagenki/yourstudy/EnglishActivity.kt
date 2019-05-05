@@ -63,9 +63,8 @@ class EnglishActivity : AppCompatActivity() {
 
 
 //    ランダムのアルファベットを求める
-    private fun randomAlphabet(): String {
-        return alphabets.keys.random()
-    }
+    private fun randomAlphabet(): String = alphabets.keys.random()
+
 //    問題欄にアルファベットをセットする
     private fun settingQuestion(word: String) {
         alphabet.text = word
