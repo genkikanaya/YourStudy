@@ -7,9 +7,9 @@ import kotlinx.android.synthetic.main.activity_greek_character.*
 
 class GreekCharacterActivity : AppCompatActivity() {
 
-    var questionGreekCharacter: String = ""
+    private var questionGreekCharacter: String = ""
 
-    val words = mapOf(
+    private val words = mapOf(
         "α" to "アルファ（Α）",
         "β" to "ベータ（Β）",
         "γ" to "ガンマ（Γ）",
@@ -58,11 +58,10 @@ class GreekCharacterActivity : AppCompatActivity() {
         }
     }
 
-    //    ランダムのギリシア文字を求める
-    private fun randomGreek(): String {
-        return words.keys.random()
-    }
-    //    問題欄にアルファベットをセットする
+//        ランダムのギリシア文字を求める
+    private fun randomGreek(): String = words.keys.random()
+
+//        問題欄にアルファベットをセットする
     private fun settingQuestion(word: String) {
         greekCharacter.text = word
     }

@@ -18,6 +18,8 @@ class MathActivity : AppCompatActivity() {
 
 //    回答の選択肢
     private val answerSpinnerItems = (0..10).toList()
+//    計算問題の最大値
+    private val maxNumber = 10
 
     private var num1: Int = 0
     private var num2: Int = 0
@@ -66,7 +68,7 @@ class MathActivity : AppCompatActivity() {
             settingsText(num1, num2, sign)
 
         }
-        //        答え合わせ
+//        答え合わせ
         val checkButton = findViewById(R.id.checkButton) as Button
         checkButton.setOnClickListener {
             when(sign){
@@ -79,30 +81,26 @@ class MathActivity : AppCompatActivity() {
             }
             if (spinner.getSelectedItem() == answer) {
                 showToast(this@MathActivity, "ok")
-            }
-            else {
+            } else {
                 showToast(this@MathActivity, "ng")
-
             }
         }
     }
 
     private fun randomItem() : Triple<Int, Int, String> {
 //        ランダム値ロジック
-//        number1に０〜１０の数をランダムで求める
-//        number2は、number1に対して数を足した時に１０以下になる値をランダムで求める。
-//        number2 <= 10 - number1　を満たす乱数
+//        最大値maxNumberいないの計算
         var item1 :Int = 0
         var item2 :Int = 0
-        var item3 :String = signs.random()
+        val item3 = signs.random()
 
-        when(item3) {
+        when (item3) {
             "+" -> {
-                item1 = Random.nextInt(0, 10)
-                item2 = Random.nextInt(10 - item1)
+                item1 = Random.nextInt(0, maxNumber)
+                item2 = Random.nextInt(maxNumber - item1)
             }
             "-" -> {
-                item1 = Random.nextInt(0, 10)
+                item1 = Random.nextInt(0, maxNumber)
                 item2 = Random.nextInt(0, item1)
             }
         }
@@ -124,8 +122,7 @@ class MathActivity : AppCompatActivity() {
         val view :View
         if (answerCollectIncollect == "ok") {
             view = inflate.inflate(R.layout.ok_toast, null)
-        }
-        else {
+        } else {
             view = inflate.inflate(R.layout.ng_toast, null)
         }
         Toast(context).run {
