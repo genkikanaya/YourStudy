@@ -19,13 +19,13 @@ class MathActivity : AppCompatActivity() {
 //    回答の選択肢
     private val answerSpinnerItems = (0..10).toList()
 
-    var num1: Int = 0
-    var num2: Int = 0
-    var sign: String = ""
-    var answer: Int = 0
-    var questionTriple: Triple<Int, Int, String> = Triple(num1, num2, sign)
+    private var num1: Int = 0
+    private var num2: Int = 0
+    private var sign: String = ""
+    private var answer: Int = 0
+    private var questionTriple: Triple<Int, Int, String> = Triple(num1, num2, sign)
 
-    val signs = listOf("+", "-")
+    private val signs = listOf("+", "-")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
