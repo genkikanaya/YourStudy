@@ -21,13 +21,14 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:textSize="25sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="25sp"
+            android:autoSizeMaxTextSize="40sp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/engsishAnswer"
             android:layout_marginTop="36dp"
             android:gravity="center_vertical"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="25sp"
-            android:autoSizeMaxTextSize="50sp"
             app:layout_constraintTop_toBottomOf="@+id/alphabet" android:textAlignment="center"
             android:textStyle="bold" android:fontFamily="monospace"/>
     <Button
